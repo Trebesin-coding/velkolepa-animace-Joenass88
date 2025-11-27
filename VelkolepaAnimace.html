@@ -1,0 +1,101 @@
+
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velkolepá animace</title>
+<style>
+   
+    body {
+        background-color: black;
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    
+    .Slunce {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px; 
+        height: auto;
+        z-index: 10;
+        pointer-events: none;
+    }
+
+    
+    .orbit {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transform-origin: center center;
+        animation: orbit 8s linear infinite;
+    }
+
+   
+    .r {
+        transform-origin: center center;
+        transform: scaleY(0.6); 
+    }
+
+   
+    .planet {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform-origin: center center;
+        transform: translateX(260px) translateY(-50%);
+        width: 120px;
+        height: auto;
+        z-index: 5;
+       
+        animation: counter 8s linear infinite;
+    }
+
+   
+    .planet.v { transform: translateX(160px) translateY(-50%); width: 80px; }
+
+    @keyframes orbit {
+        from { transform: translate(-50%, -50%) rotate(0deg); }
+        to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes counter {
+        from { transform: translateX(260px) translateY(-50%) rotate(0deg); }
+        to   { transform: translateX(260px) translateY(-50%) rotate(-360deg); }
+    }
+
+
+    @keyframes counter-v {
+        from { transform: translateX(160px) translateY(-50%) rotate(0deg); }
+        to   { transform: translateX(160px) translateY(-50%) rotate(-360deg); }
+    }
+</style>
+</head>
+<body>
+      
+        <img class="Slunce" src="SSSS.png" alt="Slunce">
+
+        <div class="orbit">
+            <div class="r">
+                <img class="planet z" src="Z.png" alt="Z">
+            </div>
+        </div>
+
+       
+        <div class="orbit" style="animation-duration: 12s;">
+            <div class="r">
+                <img class="planet v" src="V.png" alt="V" style="animation: counter-v 12s linear infinite;">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
